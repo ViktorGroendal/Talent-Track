@@ -35,6 +35,9 @@ def upload_data(encrypted_bytes):
     resp = requests.post(TargetUrl, data=payload)
     return resp.status_code == 200
 
+# CipherText that has been intercepted.
+cipher = "5840e323ff120abdabda5a71bff05e2cef13b08b22568d3258d0fecd5dbed4a91304ba9dd795e4428a5a82a1871a1d67a0a53bf9eee0d74e63d9a901f556d8c1"
+
 if LOCAL:
     cipher = localct.hex()
 
@@ -127,8 +130,7 @@ def hex_to_ascii(hex_string):
 
     return ascii_string
 
-# CipherText that has been intercepted.
-cipher = "5840e323ff120abdabda5a71bff05e2cef13b08b22568d3258d0fecd5dbed4a91304ba9dd795e4428a5a82a1871a1d67a0a53bf9eee0d74e63d9a901f556d8c1"
+# Perform the Attack
 res = oracleAttack(cipher)
 print(res)
 
